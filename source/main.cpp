@@ -36,31 +36,28 @@ Option get_option() {
 int main() {
     List *head = new List();
     Option option;
-    int position{};
     Book *book = new Book();
+
+    int number{};
+
     do  {
         instruction();
         option = get_option();
 
         switch (option) {
         case Option::CREATE_LIST: 
-            cin >> *book;
-            head->push_front(book);
+            cout << "Enter the number of elements: ";
+            cin >> number;
+            create_list(head, number);
             break;
         case Option::PRINT_LIST:
             head->print();
             break;
         case Option::ADD_ELEMENT_TO_LIST:
-            cin >> *book;
-            head->push_back(book);
             break;
         case Option::DELETE_ELEMENT_FROM_LIST:
-            cin >> *book;
-            cin >> position;
-            head->push(book, position);
             break;
         case Option::FIND_BOOK_BY_KEYWORD:
-            cout << head->size() << endl;
             break;
         case Option::IS_LIST_EMPTY:
             cout << boolalpha << head->is_list_empty() << endl;

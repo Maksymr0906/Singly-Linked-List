@@ -1,5 +1,25 @@
 #include "List.hpp"
 
+void create_list(List *&head, const int& number_of_elements) {
+    Book *book = new Book();
+    std::cin >> *book;
+    head = new List();
+    head->book = book;
+    head->next = nullptr;
+
+    List *current_node = head;
+
+    while(head->size() < number_of_elements) {
+        current_node->next = new List();
+        book = new Book();
+        std::cin >> *book;
+        current_node->next->book = book;
+        current_node->next->next = nullptr;
+
+        current_node = current_node->next;
+    }
+}
+
 List::~List() {
     delete book;
     book = nullptr;
