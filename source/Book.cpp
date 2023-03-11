@@ -1,9 +1,9 @@
 #include "Book.hpp"
 
 std::ostream &operator<<(std::ostream &os, const Book &obj) {
-    os  << "Name of author: "      << obj.name_of_author      << std::endl   
-        << "Name of book: "        << obj.name_of_book        << std::endl
-        << "Year of publication: " << obj.year_of_publication << std::endl;
+    os  << std::setw(25) << obj.name_of_author      
+        << std::setw(25) << obj.name_of_book        
+        << std::setw(25) << obj.year_of_publication;
 
     return os;
 }

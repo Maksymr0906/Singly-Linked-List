@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Book {
     friend std::ostream &operator<<(std::ostream &os, const Book &book);
