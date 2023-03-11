@@ -27,15 +27,16 @@ void instruction() {
 
 Option get_option() {
     int choice{};
-    cout << "Your choice: ";
+    cout << "\nYour choice: ";
     cin >> choice;
 
     return static_cast<Option>(choice);
 }
 
 int main() {
-    List head;
+    List head{};
     Option option;
+
     do  {
         instruction();
         option = get_option();
@@ -44,14 +45,17 @@ int main() {
         case Option::CREATE_LIST: 
             break;
         case Option::PRINT_LIST:
+            head.print();
             break;
         case Option::ADD_ELEMENT_TO_LIST:
+            head.push_back();
             break;
         case Option::DELETE_ELEMENT_FROM_LIST:
             break;
         case Option::FIND_BOOK_BY_KEYWORD:
             break;
         case Option::IS_LIST_EMPTY:
+            cout << boolalpha << head.is_list_empty() << endl;
             break;
         case Option::DELETE_LIST:
             break;
