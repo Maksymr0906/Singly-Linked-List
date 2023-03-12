@@ -63,6 +63,8 @@ int main() {
             cout << boolalpha << head->is_list_empty() << endl;
             break;
         case Option::DELETE_LIST:
+            head->delete_list();
+            head = new List();
             break;
         case Option::EXIT:
             break;

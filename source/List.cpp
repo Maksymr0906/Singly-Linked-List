@@ -23,8 +23,6 @@ void create_list(List *&head, const int& number_of_elements) {
 List::~List() {
     delete book;
     book = nullptr;
-    delete next;
-    next = nullptr;
 }
 
 int List::size() {
@@ -89,6 +87,12 @@ void List::push_front(Book *book) {
     *new_element->book = temp;
 }
 
+void print_headline() {
+    std::cout << std::setw(25) << "Name of author"
+              << std::setw(25) << "Name of book"
+              << std::setw(25) << "Year of publication" << std::endl;
+}
+
 void List::print() {
     if(this->is_list_empty()) {
         std::cout << std::endl << "List is empty" << std::endl;
@@ -104,8 +108,14 @@ void List::print() {
     }
 }
 
-void print_headline() {
-    std::cout << std::setw(25) << "Name of author"
-              << std::setw(25) << "Name of book"
-              << std::setw(25) << "Year of publication" << std::endl;
+void List::delete_list() {
+    List *current_element = this;
+    List *element_to_delete = this;
+
+    while(current_element != nullptr) {
+        element_to_delete = current_element;
+        current_element = current_element->next;
+        delete element_to_delete;
+    }
 }
+

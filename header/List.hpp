@@ -35,6 +35,7 @@ public:
     void push_front(Book *book);
     void print();
     int size();
+    void delete_list();
 };
 
 void print_headline();
