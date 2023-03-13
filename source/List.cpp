@@ -108,14 +108,16 @@ void List::print() {
     }
 }
 
-void List::delete_list() {
-    List *current_element = this;
-    List *element_to_delete = this;
+void delete_list(List *&head) {
+    List *temp = head;
 
-    while(current_element != nullptr) {
-        element_to_delete = current_element;
-        current_element = current_element->next;
-        delete element_to_delete;
+    while(head->get_next() != nullptr) {
+        temp = head;
+        head = head->get_next();
+        delete temp;
     }
+
+    head->set_book(nullptr);
+    head->set_next(nullptr);
 }
 

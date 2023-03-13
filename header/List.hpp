@@ -31,11 +31,14 @@ public:
 
     bool is_list_empty() {return book == nullptr;}
     void push_back(Book *book);
-    void push(Book *book, const int& position);
+    void push(Book *book, const int &position);
     void push_front(Book *book);
     void print();
     int size();
-    void delete_list();
+    void pop_back();
+    void pop_front();
+    void pop(const int &position);
 };
 
 void print_headline();
+void delete_list(List *&head);
