@@ -121,3 +121,21 @@ void delete_list(List *&head) {
     head->set_next(nullptr);
 }
 
+void pop_front(List *&head) {
+    if(head->is_list_empty()) {
+        std::cout << "List is empty" << std::endl;
+        return ;
+    }
+
+    List *temp = head->get_next();
+    delete head;
+    head = temp;
+}
+
+void pop_back(List *&head) {
+    List *temp = head;
+
+    while(temp->get_next() != nullptr) {
+        temp = temp->get_next();
+    }
+}

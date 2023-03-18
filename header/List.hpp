@@ -2,6 +2,7 @@
 
 #include "Book.hpp"
 #include <iomanip>
+#include <iostream>
 
 class List {
 friend void create_list(List *&head, const int& number_of_elements);
@@ -35,10 +36,9 @@ public:
     void push_front(Book *book);
     void print();
     int size();
-    void pop_back();
-    void pop_front();
-    void pop(const int &position);
 };
 
 void print_headline();
 void delete_list(List *&head);
+void pop_front(List *&head);
+void pop_back(List *&head);
