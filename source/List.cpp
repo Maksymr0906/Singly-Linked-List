@@ -79,3 +79,22 @@ void List::pop_back() {
     delete temp->get_next();
     temp->set_next(nullptr);
 }
+
+void List::pop_front() {
+    if(this->is_list_empty()) {
+        std::cout << "List is empty" << std::endl;
+        return ;
+    }
+
+    Node *temp = this->head;
+    this->head = this->head->get_next();
+    delete temp;
+    temp = nullptr;
+}
+
+void print_headline() {
+    std::cout << std::setw(25) << "Name of the author" 
+              << std::setw(25) << "Name of the book"
+              << std::setw(25) << "Year of the publication"
+              << std::endl;
+}
