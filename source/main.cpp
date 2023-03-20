@@ -34,6 +34,8 @@ Option get_option() {
 }
 
 int main() {
+    List *list = new List();
+    Book book{};
     Option option;
 
     int number{};
@@ -43,9 +45,12 @@ int main() {
         option = get_option();
 
         switch (option) {
-        case Option::CREATE_LIST: 
+        case Option::CREATE_LIST:
+            cin >> book;
+            list->push_back(book);
             break;
         case Option::PRINT_LIST:
+            list->print();
             break;
         case Option::ADD_ELEMENT_TO_LIST:
             break;

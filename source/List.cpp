@@ -19,3 +19,17 @@ void List::push_back(Book book) {
     temp->set_next(new_element);
 }
 
+void List::print() {
+    if(this->is_list_empty()) {
+        std::cout << "List is empty" << std::endl;
+        return ;
+    }
+
+    Node *temp = this->head;
+
+    while(temp != nullptr) {
+        std::cout << temp->get_book() << std::endl;
+        temp = temp->get_next();
+    }
+}
+
