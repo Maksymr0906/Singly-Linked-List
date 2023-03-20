@@ -26,6 +26,9 @@ public:
     List(): head{nullptr} {}
 
     void push_back(Book book);
+    void push_front(Book book);
     bool is_list_empty();
     void print();
 };
+
+void create_list(List *&list);

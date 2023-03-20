@@ -46,8 +46,7 @@ int main() {
 
         switch (option) {
         case Option::CREATE_LIST:
-            cin >> book;
-            list->push_back(book);
+            create_list(list);
             break;
         case Option::PRINT_LIST:
             list->print();
