@@ -34,9 +34,7 @@ Option get_option() {
 }
 
 int main() {
-    List *head = new List();
     Option option;
-    Book *book = new Book();
 
     int number{};
 

@@ -5,12 +5,24 @@
 #include <iostream>
 
 class Node {
+private:
     Book book;
     Node *next;
+public:
+    Node(): book{Book{}}, next{nullptr} {}
+    Node(Book book): book{Book{book}}, next{nullptr} {}
+
+    Node *get_next() {return this->next;}
+    void set_next(Node *next) {this->next = next;}
 };
+
 class List {
-    private:
-        Node *head;
-    public:
-        
+private:
+    Node *head;
+
+public:
+    List(): head{nullptr} {}
+
+    void push_back(Book book);
+    bool is_list_empty();
 };
