@@ -58,6 +58,7 @@ int main() {
         case Option::FIND_BOOK_BY_KEYWORD:
             break;
         case Option::IS_LIST_EMPTY:
+            std::cout << boolalpha << list->is_list_empty() << std::endl;
             break;
         case Option::DELETE_LIST:
             break;

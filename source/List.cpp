@@ -17,6 +17,10 @@ void create_list(List *&list) {
     }
 }
 
+void delete_list(List *&list) {
+
+}
+
 bool List::is_list_empty() {
     return this->head == nullptr? true: false;
 }
@@ -61,3 +65,17 @@ void List::print() {
     }
 }
 
+void List::pop_back() {
+    if(this->is_list_empty()) {
+        std::cout << "List is empty" << std::endl;
+        return ;
+    }
+
+    Node *temp = this->head;
+    while(temp->get_next() != nullptr) {
+        temp = temp->get_next();
+    }
+
+    delete temp->get_next();
+    temp->set_next(nullptr);
+}

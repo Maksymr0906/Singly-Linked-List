@@ -27,8 +27,10 @@ public:
 
     void push_back(Book book);
     void push_front(Book book);
+    void pop_back();
     bool is_list_empty();
     void print();
 };
 
 void create_list(List *&list);
+void delete_list(List *&list);
