@@ -71,13 +71,21 @@ void List::pop_back() {
         return ;
     }
 
+    if(this->head->get_next() == nullptr) {
+        delete this->head;
+        this->head = nullptr;
+        return ;
+    }
+    
     Node *temp = this->head;
-    while(temp->get_next() != nullptr) {
+    while(temp->get_next()->get_next() != nullptr) {
         temp = temp->get_next();
     }
 
-    delete temp->get_next();
+    Node *element_to_delete = temp->get_next();    
     temp->set_next(nullptr);
+    delete element_to_delete;
+    element_to_delete->set_next(nullptr);
 }
 
 void List::pop_front() {
