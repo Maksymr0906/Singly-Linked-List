@@ -61,6 +61,7 @@ int main() {
             std::cout << boolalpha << list->is_list_empty() << std::endl;
             break;
         case Option::DELETE_LIST:
+            delete_list(list);
             break;
         case Option::EXIT:
             break;
