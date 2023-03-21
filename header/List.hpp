@@ -19,6 +19,7 @@ public:
 };
 
 class List {
+friend void delete_list(List *&list);
 private:
     Node *head;
 

@@ -2,7 +2,7 @@
 
 void create_list(List *&list) {
     if(!list->is_list_empty()) {
-        //delete previous list
+        delete_list(list);
     }
 
     size_t number_of_elements{};
@@ -18,7 +18,17 @@ void create_list(List *&list) {
 }
 
 void delete_list(List *&list) {
+    if(list->is_list_empty()) {
+        std::cout << "List is empty" << std::endl;
+        return ;
+    }
 
+    Node *element_to_delete = list->head;
+    while(list->head != nullptr) {
+        list->head = list->head->get_next();
+        delete element_to_delete;
+        element_to_delete = list->head;
+    }
 }
 
 bool List::is_list_empty() {
