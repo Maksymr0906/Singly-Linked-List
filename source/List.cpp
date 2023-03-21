@@ -35,7 +35,7 @@ bool List::is_list_empty() {
     return this->head == nullptr? true: false;
 }
 
-void List::push_back(Book book) {
+void List::push_back(const Book book) {
     if(this->is_list_empty()) {
         this->head = new Node{book};
         return ;
@@ -50,7 +50,11 @@ void List::push_back(Book book) {
     temp->set_next(new_element);
 }
 
-void List::push_front(Book book) {
+void List::push_in_specific_place(const Book book, const int &position) {
+
+}
+
+void List::push_front(const Book book) {
     if(this->is_list_empty()) {
         this->head = new Node{book};
         return ;
@@ -66,7 +70,8 @@ void List::print() {
         std::cout << "List is empty" << std::endl;
         return ;
     }
-
+    
+    print_headline();
     Node *temp = this->head;
 
     while(temp != nullptr) {
@@ -96,6 +101,10 @@ void List::pop_back() {
     temp->set_next(nullptr);
     delete element_to_delete;
     element_to_delete->set_next(nullptr);
+}
+
+void List::pop_in_specific_place(const int &position) {
+
 }
 
 void List::pop_front() {

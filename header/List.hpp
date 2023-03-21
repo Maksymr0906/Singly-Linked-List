@@ -26,9 +26,11 @@ private:
 public:
     List(): head{nullptr} {}
 
-    void push_back(Book book);
-    void push_front(Book book);
+    void push_back(const Book book);
+    void push_in_specific_place(const Book book, const int &position);
+    void push_front(const Book book);
     void pop_back();
+    void pop_in_specific_place(const int& position);
     void pop_front();
     bool is_list_empty();
     void print();
