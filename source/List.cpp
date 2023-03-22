@@ -176,15 +176,16 @@ void List::pop_from_specific_place(const int &position) {
     }
 
     Node *temp = this->head;
-    int size{1};
-    while(temp != nullptr && size < position) {
+    int size{0};
+    while(temp != nullptr && size < position - 1) {
         temp = temp->get_next();
         size++;
     }
 
-    if(size == position) {
+    if(temp != nullptr && temp->get_next() != nullptr) {
         Node *element_to_delete = temp->get_next();
         temp->set_next(temp->get_next()->get_next());
+        delete element_to_delete;
     }
     else std::cout << "This element does not exist" << std::endl;
 }
