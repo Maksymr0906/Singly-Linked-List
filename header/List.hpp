@@ -35,6 +35,7 @@ public:
     void pop_front();
     bool is_list_empty();
     void print();
+    void find_book_by_keyword(const std::string &keyword);
 };
 
 void create_list(List *&list);
@@ -43,3 +44,4 @@ void print_headline();
 void push_element_to_list(List *&list, const Book book);
 void delete_element_from_list(List *&list);
 int get_number(const std::string &message);
+std::string to_lower_case(const std::string &str);

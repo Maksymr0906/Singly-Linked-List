@@ -37,8 +37,7 @@ int main() {
     List *list = new List();
     Book book{};
     Option option;
-
-    int number{};
+    string keyword{}; 
 
     do  {
         instruction();
@@ -48,24 +47,35 @@ int main() {
         case Option::CREATE_LIST:
             create_list(list);
             break;
+
         case Option::PRINT_LIST:
             list->print();
             break;
+
         case Option::ADD_ELEMENT_TO_LIST:
             cin >> book;
             push_element_to_list(list, book);
             break;
+
         case Option::DELETE_ELEMENT_FROM_LIST:
             delete_element_from_list(list);
             break;
+
         case Option::FIND_BOOK_BY_KEYWORD:
+            cout << "Enter the keyword: ";
+            cin >> keyword;
+            keyword = to_lower_case(keyword);
+            list->find_book_by_keyword(keyword);
             break;
+
         case Option::IS_LIST_EMPTY:
             std::cout << boolalpha << list->is_list_empty() << std::endl;
             break;
+
         case Option::DELETE_LIST:
             delete_list(list);
             break;
+            
         case Option::EXIT:
             break;
         default:

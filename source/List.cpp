@@ -40,12 +40,12 @@ void push_element_to_list(List *&list, const Book book) {
               << "2 - push in specific place\n"
               << "3 - push back\n";
 
-    int choice = get_number("choice");
+    int choice = get_number("Your choice: ");
     if(choice == 1) {
         list->push_front(book);
     }
     else if(choice == 2) {
-        int position = get_number("position");
+        int position = get_number("Enter the position: ");
         list->push_in_specific_place(book, position);
     }
     else if(choice == 3) {
@@ -128,12 +128,12 @@ void delete_element_from_list(List *&list) {
               << "2 - pop from specific place\n"
               << "3 - pop back\n";
 
-    int choice = get_number("choice");
+    int choice = get_number("Your choice: ");
     if(choice == 1) {
         list->pop_front();
     }
     else if(choice == 2) {
-        int position = get_number("position");
+        int position = get_number("Enter the position: ");
         list->pop_from_specific_place(position);
     }
     else if(choice == 3) {
@@ -201,9 +201,27 @@ void List::pop_front() {
     temp = nullptr;
 }
 
+void List::find_book_by_keyword(const std::string &keyword) {
+    if(this->is_list_empty()) {
+        return ;
+    }
+
+    std::string name_of_book{};
+    Node *temp = this->head;
+    std::cout << "Book with this keyword: " << std::endl;
+    while(temp != nullptr) {
+        name_of_book = to_lower_case(temp->get_book().get_name_of_book());
+        if(name_of_book.find(keyword) != std::string::npos) {
+            std::cout << temp->get_book() << std::endl;
+        }
+
+        temp = temp->get_next();
+    }
+}
+
 int get_number(const std::string &message) {
     int number;
-    std::cout << "Enter the " << message << ": ";
+    std::cout << message << std::endl;
     std::cin >> number;
     return number;
 }
@@ -213,4 +231,14 @@ void print_headline() {
               << std::setw(25) << "Name of the book"
               << std::setw(25) << "Year of the publication"
               << std::endl;
+}
+
+std::string to_lower_case(const std::string &str) {
+    std::string temp{str};
+
+    for (size_t i = 0; i < temp.size(); i++)    {
+        temp[i] = tolower(temp[i]);
+    }
+
+    return temp;
 }
