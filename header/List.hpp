@@ -31,7 +31,7 @@ public:
     void push_in_specific_place(const Book book, const int &position);
     void push_front(const Book book);
     void pop_back();
-    void pop_in_specific_place(const int& position);
+    void pop_from_specific_place(const int& position);
     void pop_front();
     bool is_list_empty();
     void print();
@@ -41,4 +41,5 @@ void create_list(List *&list);
 void delete_list(List *&list);
 void print_headline();
 void push_element_to_list(List *&list, const Book book);
+void delete_element_from_list(List *&list);
 int get_number(const std::string &message);

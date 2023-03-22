@@ -56,6 +56,7 @@ int main() {
             push_element_to_list(list, book);
             break;
         case Option::DELETE_ELEMENT_FROM_LIST:
+            delete_element_from_list(list);
             break;
         case Option::FIND_BOOK_BY_KEYWORD:
             break;

@@ -123,6 +123,25 @@ void List::print() {
     }
 }
 
+void delete_element_from_list(List *&list) {
+    std::cout << "1 - pop front\n"
+              << "2 - pop from specific place\n"
+              << "3 - pop back\n";
+
+    int choice = get_number("choice");
+    if(choice == 1) {
+        list->pop_front();
+    }
+    else if(choice == 2) {
+        int position = get_number("position");
+        list->pop_from_specific_place(position);
+    }
+    else if(choice == 3) {
+        list->pop_back();
+    }
+    else std::cout << "Incorrect choice" << std::endl;
+}
+
 void List::pop_back() {
     if(this->is_list_empty()) {
         std::cout << "List is empty" << std::endl;
@@ -146,8 +165,28 @@ void List::pop_back() {
     element_to_delete->set_next(nullptr);
 }
 
-void List::pop_in_specific_place(const int &position) {
+void List::pop_from_specific_place(const int &position) {
+    if(this->is_list_empty()) {
+        return ;
+    }
 
+    if(position == 0) {
+        this->pop_front();
+        return ;
+    }
+
+    Node *temp = this->head;
+    int size{1};
+    while(temp != nullptr && size < position) {
+        temp = temp->get_next();
+        size++;
+    }
+
+    if(size == position) {
+        Node *element_to_delete = temp->get_next();
+        temp->set_next(temp->get_next()->get_next());
+    }
+    else std::cout << "This element does not exist" << std::endl;
 }
 
 void List::pop_front() {
