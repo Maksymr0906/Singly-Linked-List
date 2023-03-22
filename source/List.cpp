@@ -35,6 +35,25 @@ bool List::is_list_empty() {
     return this->head == nullptr? true: false;
 }
 
+void push_element_to_list(List *&list, const Book book) {
+    std::cout << "1 - push front\n"
+              << "2 - push in specific place\n"
+              << "3 - push back\n";
+
+    int choice = get_number("choice");
+    if(choice == 1) {
+        list->push_front(book);
+    }
+    else if(choice == 2) {
+        int position = get_number("position");
+        list->push_in_specific_place(book, position);
+    }
+    else if(choice == 3) {
+        list->push_back(book);
+    }
+    else std::cout << "Incorrect choice" << std::endl;
+}
+
 void List::push_back(const Book book) {
     if(this->is_list_empty()) {
         this->head = new Node{book};
@@ -51,7 +70,31 @@ void List::push_back(const Book book) {
 }
 
 void List::push_in_specific_place(const Book book, const int &position) {
+    if(this->is_list_empty()) {
+        this->push_front(book);
+        return ;
+    }
 
+    if(position == 0) {
+        this->push_front(book);
+        return ;
+    }
+
+    Node *temp = this->head;
+    int size{1};
+    while(temp != nullptr && size < position) {
+        temp = temp->get_next();
+        size++;
+    }
+
+    if(size == position) {
+        Node *new_element = new Node{book};
+        new_element->set_next(temp->get_next());
+        temp->set_next(new_element);
+    }
+    else {
+        this->push_back(book);
+    }
 }
 
 void List::push_front(const Book book) {
@@ -117,6 +160,13 @@ void List::pop_front() {
     this->head = this->head->get_next();
     delete temp;
     temp = nullptr;
+}
+
+int get_number(const std::string &message) {
+    int number;
+    std::cout << "Enter the " << message << ": ";
+    std::cin >> number;
+    return number;
 }
 
 void print_headline() {

@@ -52,6 +52,8 @@ int main() {
             list->print();
             break;
         case Option::ADD_ELEMENT_TO_LIST:
+            cin >> book;
+            push_element_to_list(list, book);
             break;
         case Option::DELETE_ELEMENT_FROM_LIST:
             break;

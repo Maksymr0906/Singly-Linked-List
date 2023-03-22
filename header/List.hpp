@@ -20,6 +20,7 @@ public:
 
 class List {
 friend void delete_list(List *&list);
+
 private:
     Node *head;
 
@@ -39,3 +40,5 @@ public:
 void create_list(List *&list);
 void delete_list(List *&list);
 void print_headline();
+void push_element_to_list(List *&list, const Book book);
+int get_number(const std::string &message);
